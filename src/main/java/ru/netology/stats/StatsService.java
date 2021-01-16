@@ -1,24 +1,39 @@
 package ru.netology.stats;
 
-public class StatsService {
-    public long calculateSum(long[] purchases) {
-        long sum = 0;
-        for (long purchase : purchases) {
+public class StatsService<mean> {
+    public int calculateSum(int[] sales) {
+        int mean = 0;
+        for (int sale : sales) {
             // аналог sum = sum + purchase;
-            sum += purchase;
+            mean += sale;
         }
-        return sum;
+        return mean;
     }
 
-    public long findMax(long[] purchases) {
-        long currentMax = purchases[0];
-        for (long purchase : purchases) {
-            if (currentMax < purchase) {
-                currentMax = purchase;
-            }
-        }
-        return currentMax;
 
+    public int monthMaxSales(int[] values) {
+        int month = 0;
+        for (int value : values) {
+        month += 1;
+        }
+        return month;
     }
+
+    public int monthMinSales(int[] values){
+        int month = 0;
+        for (int value : values) {
+            month +=1;
+        }
+        return month;
+    }
+
+//    public int calculateMean(int[] sales) {
+//        int numberOfMonths = sales.length;
+//        int mean = calculateMean(sales) / numberOfMonths;
+//
+//        }
+//        return mean;
+//    }
 }
+
 
