@@ -1,6 +1,6 @@
 package ru.netology.stats;
 
-public class StatsService<mean> {
+public class StatsService {
     public int calculateSum(int[] sales) {
         int mean = 0;
         for (int sale : sales) {
@@ -27,13 +27,15 @@ public class StatsService<mean> {
         return month;
     }
 
-//    public int calculateMean(int[] sales) {
-//        int numberOfMonths = sales.length;
-//        int mean = calculateMean(sales) / numberOfMonths;
-//
-//        }
-//        return mean;
-//    }
-}
+     public int calculateMean(int[] sales) {
+      int numberOfMonths = sales.length;
+      int mean = calculateSum(sales) / numberOfMonths;
+      return mean;
+        }
+
+
+        }
+
+
 
 
