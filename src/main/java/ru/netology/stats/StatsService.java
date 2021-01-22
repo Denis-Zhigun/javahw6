@@ -1,59 +1,78 @@
 package ru.netology.stats;
 
 public class StatsService {
-    public int calculateSum(int[] sales) {
-        int mean = 0;
-        for (int sale : sales) {
-            // аналог sum = sum + purchase;
-            mean += sale;
+    public int sum(int[] purchases) {
+        int result = 0;
+        for (int purchase : purchases) {
+            result += purchase;
+
         }
-        return mean;
+        return result;
     }
 
-
-    public int monthMaxSales(int[] values) {
-        int month = 0;
-        for (int value : values) {
-            month += 1;
-        }
-        return month;
+    public int mean(int[] purchases) {
+        return sum(purchases) / purchases.length;
     }
 
-    public int monthMinSales(int[] values) {
-        int month = 0;
-        for (int value : values) {
-            month += 1;
+    public int MonthMaxPurchase(int[] purchases) {
+
+        int max = purchases[0];
+        for (int purchase : purchases) {
+            if (max < purchase) {
+                max = purchase;
+            }
         }
-        return month;
+        int monthMaxPurchase = 0;
+        int MonthCount = 0;
+        for (int purchase : purchases) {
+            MonthCount++;
+            if (purchase == max) {
+                monthMaxPurchase = MonthCount;
+
+            }
+        }
+        return monthMaxPurchase;
     }
 
-    public int calculateMean(int[] sales) {
-        int numberOfMonths = sales.length;
-        int mean = calculateSum(sales) / numberOfMonths;
-        return mean;
+    public int MonthMinPurchase(int[] purchases) {
+
+        int min = purchases[0];
+        for (int purchase : purchases) {
+            if (min > purchase) {
+                min = purchase;
+            }
+        }
+        int monthMinPurchase = 0;
+        int MonthCount = 0;
+        for (int purchase : purchases) {
+            MonthCount++;
+            if (purchase == min) {
+                monthMinPurchase = MonthCount;
+
+            }
+        }
+        return monthMinPurchase;
     }
 
-    public int calculateMeanMinMonth(int[] sales) {
-        int numberOfMonths = sales.length;
-        int mean = calculateSum(sales) / numberOfMonths;
-        int month = 0;
-        for (int sale : sales) {
-            month += 1;
+    public int monthCounthMoreMean(int[] purchases) {
+        int mean = mean(purchases);
+        int monthCount = 0;
+        for (int purchase : purchases) {
+            if (purchase > mean) {
+                monthCount++;
+            }
         }
-        return month;
+        return monthCount;
     }
 
-    public int calculateMeanMaxMonth(int[] sales) {
-        int numberOfMonths = sales.length;
-        int mean = calculateSum(sales) / numberOfMonths;
-        int month = 0;
-        for (int sale : sales) {
-            month += 1;
+    public int monthCounthLessMean(int[] purchases) {
+        int mean = mean(purchases);
+        int monthCount = 0;
+        for (int purchase : purchases) {
+            if (purchase < mean) {
+                monthCount++;
+            }
         }
-        return month;
+        return monthCount;
     }
 }
-
-
-
-

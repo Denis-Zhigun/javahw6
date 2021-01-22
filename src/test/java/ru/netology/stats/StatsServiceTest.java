@@ -7,71 +7,65 @@ import static org.junit.jupiter.api.Assertions.*;
 class StatsServiceTest {
 
     @Test
-    void calculateSum() {
+    void shouldSum() {
         StatsService service = new StatsService();
 
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 180;
 
-        int actual = service.calculateSum(sales);
+        int actual = service.sum(purchases);
 
         assertEquals(expected, actual);
     }
 
     @Test
-    void monthMaxSales() {
+    void shouldMean() {
         StatsService service = new StatsService();
 
-        int[] values = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 12;
-
-        int actual = service.monthMaxSales(values);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void monthMinSales() {
-        StatsService service = new StatsService();
-
-        int[] values = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 12;
-
-        int actual = service.monthMinSales(values);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void calculateMean() {
-        StatsService service = new StatsService();
-
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 15;
 
-        int actual = service.calculateMean(sales);
-
+        int actual = service.mean(purchases);
         assertEquals(expected, actual);
     }
     @Test
-    void calculateMeanMinMonth() {
+    void shouldReturnMonthMaxPurchase() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 5;
 
-        int actual = service.calculateMeanMinMonth(sales);
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 8;
 
+        int actual = service.MonthMaxPurchase(purchases);
         assertEquals(expected, actual);
     }
-
     @Test
-    void calculateMeanMaxMonth() {
+    void shouldReturnMonthMinPurchase() {
         StatsService service = new StatsService();
-        int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 9;
+
+        int actual = service.MonthMinPurchase(purchases);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void shouldReturnMonthCountMoreThanMean() {
+        StatsService service = new StatsService();
+
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int expected = 5;
 
-        int actual = service.calculateMeanMaxMonth(sales);
+        int actual = service.monthCounthMoreMean(purchases);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void shouldReturnMonthCountLessThanMean() {
+        StatsService service = new StatsService();
 
+        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+        int expected = 5;
+
+        int actual = service.monthCounthLessMean(purchases);
         assertEquals(expected, actual);
     }
 }
